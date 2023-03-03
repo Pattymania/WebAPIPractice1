@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using WebAPIPractice.Data;
+using WebAPIPractice.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +15,10 @@ builder.Services.AddDbContext<WebAPIDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("WebApiPractice"));
 });
+
+builder.Services.AddScoped<IRegionRepository, RegionRepository>();
+
+builder.Services.AddAutoMapper(typeof(Program).Assembly);
 
 var app = builder.Build();
 
