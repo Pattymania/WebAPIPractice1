@@ -7,7 +7,6 @@ namespace WebAPIPractice.Models.Profiles
         public RegionProfile()
         {
             CreateMap<Models.Domain.Region, Models.Domain.DTO.RegionDTO>();
-            
         }
     }
 }
